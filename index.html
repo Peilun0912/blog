@@ -91,7 +91,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="沒有人的文庫">
-<meta property="og:url" content="https://pei-lun.github.io/blog/index.html">
+<meta property="og:url" content="http://pei-lun.github.io/blog/index.html">
 <meta property="og:site_name" content="沒有人的文庫">
 <meta property="og:locale" content="zh-tw">
 <meta name="twitter:card" content="summary">
@@ -123,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="https://pei-lun.github.io/blog/"/>
+  <link rel="canonical" href="http://pei-lun.github.io/blog/"/>
 
 
 
@@ -250,12 +250,12 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://pei-lun.github.io/blog/blog/2016/06/16/Use-fcntl-flock-to-Allow-Only-One-Execution-of-a-Script-Simultaneously/">
+    <link itemprop="mainEntityOfPage" href="http://pei-lun.github.io/blog/blog/2016/06/16/Use-fcntl-flock-to-Allow-Only-One-Execution-of-a-Script-Simultaneously/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Pei-Lun H.">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/658047658842451968/1_aqC4Uc.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -302,6 +302,17 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/2016/06/16/Use-fcntl-flock-to-Allow-Only-One-Execution-of-a-Script-Simultaneously/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/06/16/Use-fcntl-flock-to-Allow-Only-One-Execution-of-a-Script-Simultaneously/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -373,12 +384,12 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://pei-lun.github.io/blog/blog/2016/06/11/My-Workflow-for-a-Fork/">
+    <link itemprop="mainEntityOfPage" href="http://pei-lun.github.io/blog/blog/2016/06/11/My-Workflow-for-a-Fork/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Pei-Lun H.">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/658047658842451968/1_aqC4Uc.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -426,6 +437,17 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/2016/06/11/My-Workflow-for-a-Fork/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/06/11/My-Workflow-for-a-Fork/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -452,17 +474,17 @@
           
             <p>習慣上我會保持 fork 的 master 和原始 repository 的 master 同步，並且不會直接 commit 自己的變更到該分支。</p>
 <h2 id="設定"><a href="#設定" class="headerlink" title="設定"></a>設定</h2><p>首先為 fork 設定原始 repository 的 remote：</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote <span class="built_in">add</span> upstream &lt;remote <span class="built_in">URL</span> <span class="built_in">to</span> original repository&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add upstream &lt;remote URL to original repository&gt;</div></pre></td></tr></table></figure>
 <p>完成後輸入 <code>git remote -v</code> 應該會看到 origin 和 upstream。</p>
 <p>然後再從 master 建立新的分支：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -<span class="selector-tag">b</span> &lt;my changes&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -b &lt;my changes&gt;</div></pre></td></tr></table></figure>
 <p>此後所有變更都 commit 到該分支上。</p>
 <h2 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h2><p>執行：</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git checkout <span class="literal">master</span></div><div class="line">git fetch upstream</div><div class="line">git merge upstream/<span class="literal">master</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git checkout master</div><div class="line">git fetch upstream</div><div class="line">git merge upstream/master</div></pre></td></tr></table></figure>
 <p>或是：</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git checkout <span class="literal">master</span></div><div class="line">git pull upstream <span class="literal">master</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git checkout master</div><div class="line">git pull upstream master</div></pre></td></tr></table></figure>
 <p>以同步 fork 的 master 分支。然後再執行：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git checkout &lt;<span class="keyword">my</span> changes&gt;</div><div class="line">git merge master</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git checkout &lt;my changes&gt;</div><div class="line">git merge master</div></pre></td></tr></table></figure>
 
           
         
@@ -506,12 +528,12 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://pei-lun.github.io/blog/blog/2016/05/01/Convert-Timezone-in-Python-without-Installing-Packages/">
+    <link itemprop="mainEntityOfPage" href="http://pei-lun.github.io/blog/blog/2016/05/01/Convert-Timezone-in-Python-without-Installing-Packages/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Pei-Lun H.">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/658047658842451968/1_aqC4Uc.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -558,6 +580,17 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/2016/05/01/Convert-Timezone-in-Python-without-Installing-Packages/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/05/01/Convert-Timezone-in-Python-without-Installing-Packages/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -629,12 +662,12 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://pei-lun.github.io/blog/blog/2015/12/21/Creating-a-Python-Deployment-Package-for-AWS-Lambda/">
+    <link itemprop="mainEntityOfPage" href="http://pei-lun.github.io/blog/blog/2015/12/21/Creating-a-Python-Deployment-Package-for-AWS-Lambda/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Pei-Lun H.">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/658047658842451968/1_aqC4Uc.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -682,6 +715,17 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/2015/12/21/Creating-a-Python-Deployment-Package-for-AWS-Lambda/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2015/12/21/Creating-a-Python-Deployment-Package-for-AWS-Lambda/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -709,17 +753,17 @@
             <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>這篇主要是紀錄實作 AWS Lambda 開發者文件 <a href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-python-how-to-create-deployment-package.html" target="_blank" rel="external">Creating a Deployment Package (Python)</a> 的步驟，同時還參考了 <a href="http://www.perrygeo.com/running-python-with-compiled-code-on-aws-lambda.html" target="_blank" rel="external">Running Python with compiled code on AWS Lambda</a> 這篇文章。</p>
 <h1 id="實作"><a href="#實作" class="headerlink" title="實作"></a>實作</h1><h2 id="開個跑-Amazon-Linux-AMI-的-EC2-instance"><a href="#開個跑-Amazon-Linux-AMI-的-EC2-instance" class="headerlink" title="開個跑 Amazon Linux AMI 的 EC2 instance"></a>開個跑 Amazon Linux AMI 的 EC2 instance</h2><p>AWS lambda 的執行環境基本上就是 Amazon Linux AMI，因為使用同樣環境下編譯的套件比較容易成功，所以我們首先要開個跑 Amazon Linux AMI 的 EC2 instance。</p>
 <h2 id="安裝編譯-lxml-所需要的套件"><a href="#安裝編譯-lxml-所需要的套件" class="headerlink" title="安裝編譯 lxml 所需要的套件"></a>安裝編譯 lxml 所需要的套件</h2><p>ssh 進剛剛開好的 EC2 instance 並安裝套件：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo yum install gcc libxml2-devel libxslt-devel</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum install gcc libxml2-devel libxslt-devel</div></pre></td></tr></table></figure>
 <h2 id="在虛擬環境安裝-lxml"><a href="#在虛擬環境安裝-lxml" class="headerlink" title="在虛擬環境安裝 lxml"></a>在虛擬環境安裝 lxml</h2><p>Amazon Linux AMI 預設的 python 環境已經裝了很多不必要的套件，因此我們需要用 virtualenv 建立乾淨的虛擬環境：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ python -m virtualenv path/<span class="keyword">to</span>/<span class="keyword">my</span>/virtual-env</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ python -m virtualenv path/to/my/virtual-env</div></pre></td></tr></table></figure>
 <p>建立好之後啟動虛擬環境：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ source path/<span class="keyword">to</span>/<span class="keyword">my</span>/virtual-env/bin/<span class="built_in">activate</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ source path/to/my/virtual-env/bin/activate</div></pre></td></tr></table></figure>
 <p>安裝 lxml:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> python -m pip install lxml</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ python -m pip install lxml</div></pre></td></tr></table></figure>
 <h2 id="打包-lambda-程式"><a href="#打包-lambda-程式" class="headerlink" title="打包 lambda 程式"></a>打包 lambda 程式</h2><p>假設用到 lxml 的 lambda 程式放在 <code>path/to/my/project</code> 下，先切換到該目錄再打包成 zip 檔：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> path/to/my/project</span></div><div class="line"><span class="meta">$</span><span class="bash"> zip -9r bundle.zip *</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd path/to/my/project</div><div class="line">$ zip -9r bundle.zip *</div></pre></td></tr></table></figure>
 <p>然後再切換到該虛擬環境放置套件的目錄，並打包進剛剛的 zip 檔：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> <span class="variable">$VIRTUAL_ENV</span>/lib/python2.7/site-packages</span></div><div class="line"><span class="meta">$</span><span class="bash"> zip -9r path/to/my/project/bundle.zip *</span></div><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> <span class="variable">$VIRTUAL_ENV</span>/lib64/python2.7/site-packages</span></div><div class="line"><span class="meta">$</span><span class="bash"> zip -9r path/to/my/project/bundle.zip *</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ cd $VIRTUAL_ENV/lib/python2.7/site-packages</div><div class="line">$ zip -9r path/to/my/project/bundle.zip *</div><div class="line">$ cd $VIRTUAL_ENV/lib64/python2.7/site-packages</div><div class="line">$ zip -9r path/to/my/project/bundle.zip *</div></pre></td></tr></table></figure>
 <h2 id="發佈"><a href="#發佈" class="headerlink" title="發佈"></a>發佈</h2><p>最後只要上傳 <code>path/to/my/project/bundle.zip</code> 到 AWS Lambda 去就完成了。</p>
 
           
@@ -764,12 +808,12 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://pei-lun.github.io/blog/blog/2015/12/13/Make-Atom-Render-Ligatures/">
+    <link itemprop="mainEntityOfPage" href="http://pei-lun.github.io/blog/blog/2015/12/13/Make-Atom-Render-Ligatures/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Pei-Lun H.">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/658047658842451968/1_aqC4Uc.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -817,6 +861,17 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/2015/12/13/Make-Atom-Render-Ligatures/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2015/12/13/Make-Atom-Render-Ligatures/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -843,7 +898,7 @@
           
             <p>有些字型如 <a href="https://github.com/i-tu/Hasklig" target="_blank" rel="external">Hasklig</a>、<a href="https://github.com/tonsky/FiraCode" target="_blank" rel="external">Fira Code</a> 和 <a href="http://larsenwork.com/monoid/" target="_blank" rel="external">Monoid</a> 有專為程式語言設計的合字（ligature），可以讓程式碼更好閱讀。</p>
 <p>要讓 Atom 顯示這些合字，除了設定使用這種字型外，還得在 <code>~/.atom/styles.less</code>（*nix）或是 <code>%USERPROFILE%\.atom\styles.less</code>（Windows）內加入樣式：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.editor</span> &#123;</div><div class="line">  <span class="attribute">text-rendering</span>: optimizeLegibility;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.editor &#123;</div><div class="line">  text-rendering: optimizeLegibility;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>註：可以從選單列 <em>Atom &gt; Open Your Stylesheet</em>（*nix）或是 <em>File &gt; Open Your Stylesheet</em>（Windows）快速開啟這個檔案。</p>
 
           
@@ -912,7 +967,7 @@
       <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/blog/images/avatar.gif"
+               src="https://pbs.twimg.com/profile_images/658047658842451968/1_aqC4Uc.jpg"
                alt="Pei-Lun H." />
           <p class="site-author-name" itemprop="name">Pei-Lun H.</p>
            
@@ -1086,6 +1141,14 @@
 
   
 
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://nobody-archives.disqus.com/count.js" async></script>
+    
+
+    
 
   
 

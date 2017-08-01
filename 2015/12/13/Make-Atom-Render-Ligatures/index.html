@@ -93,7 +93,7 @@
 <meta name="keywords" content="Atom">
 <meta property="og:type" content="article">
 <meta property="og:title" content="令 Atom 顯示合字">
-<meta property="og:url" content="https://pei-lun.github.io/blog/2015/12/13/Make-Atom-Render-Ligatures/index.html">
+<meta property="og:url" content="http://pei-lun.github.io/blog/2015/12/13/Make-Atom-Render-Ligatures/index.html">
 <meta property="og:site_name" content="沒有人的文庫">
 <meta property="og:description" content="有些字型如 Hasklig、Fira Code 和 Monoid 有專為程式語言設計的合字（ligature），可以讓程式碼更好閱讀。 要讓 Atom 顯示這些合字，除了設定使用這種字型外，還得在 ~/.atom/styles.less（*nix）或是 %USERPROFILE%\.atom\styles.less（Windows）內加入樣式： 123.editor &amp;#123;  text-re">
 <meta property="og:locale" content="zh-tw">
@@ -128,7 +128,7 @@
 
 
 
-  <link rel="canonical" href="https://pei-lun.github.io/blog/2015/12/13/Make-Atom-Render-Ligatures/"/>
+  <link rel="canonical" href="http://pei-lun.github.io/blog/2015/12/13/Make-Atom-Render-Ligatures/"/>
 
 
 
@@ -253,12 +253,12 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://pei-lun.github.io/blog/blog/2015/12/13/Make-Atom-Render-Ligatures/">
+    <link itemprop="mainEntityOfPage" href="http://pei-lun.github.io/blog/blog/2015/12/13/Make-Atom-Render-Ligatures/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Pei-Lun H.">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/658047658842451968/1_aqC4Uc.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -303,6 +303,17 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/2015/12/13/Make-Atom-Render-Ligatures/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2015/12/13/Make-Atom-Render-Ligatures/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -327,7 +338,7 @@
       
         <p>有些字型如 <a href="https://github.com/i-tu/Hasklig" target="_blank" rel="external">Hasklig</a>、<a href="https://github.com/tonsky/FiraCode" target="_blank" rel="external">Fira Code</a> 和 <a href="http://larsenwork.com/monoid/" target="_blank" rel="external">Monoid</a> 有專為程式語言設計的合字（ligature），可以讓程式碼更好閱讀。</p>
 <p>要讓 Atom 顯示這些合字，除了設定使用這種字型外，還得在 <code>~/.atom/styles.less</code>（*nix）或是 <code>%USERPROFILE%\.atom\styles.less</code>（Windows）內加入樣式：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.editor</span> &#123;</div><div class="line">  <span class="attribute">text-rendering</span>: optimizeLegibility;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.editor &#123;</div><div class="line">  text-rendering: optimizeLegibility;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>註：可以從選單列 <em>Atom &gt; Open Your Stylesheet</em>（*nix）或是 <em>File &gt; Open Your Stylesheet</em>（Windows）快速開啟這個檔案。</p>
 
       
@@ -405,6 +416,13 @@
           
   <div class="comments" id="comments">
     
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
   </div>
 
 
@@ -430,7 +448,7 @@
       <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/blog/images/avatar.gif"
+               src="https://pbs.twimg.com/profile_images/658047658842451968/1_aqC4Uc.jpg"
                alt="Pei-Lun H." />
           <p class="site-author-name" itemprop="name">Pei-Lun H.</p>
            
@@ -608,6 +626,26 @@
 
   
 
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://nobody-archives.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://pei-lun.github.io/blog/2015/12/13/Make-Atom-Render-Ligatures/';
+          this.page.identifier = '2015/12/13/Make-Atom-Render-Ligatures/';
+          this.page.title = '令 Atom 顯示合字';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://nobody-archives.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
 
   
 

@@ -93,7 +93,7 @@
 <meta name="keywords" content="Python 2,AWS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="建立可用於 AWS Lambda 的 Python 部署套件">
-<meta property="og:url" content="https://pei-lun.github.io/blog/2015/12/21/Creating-a-Python-Deployment-Package-for-AWS-Lambda/index.html">
+<meta property="og:url" content="http://pei-lun.github.io/blog/2015/12/21/Creating-a-Python-Deployment-Package-for-AWS-Lambda/index.html">
 <meta property="og:site_name" content="沒有人的文庫">
 <meta property="og:description" content="前言這篇主要是紀錄實作 AWS Lambda 開發者文件 Creating a Deployment Package (Python) 的步驟，同時還參考了 Running Python with compiled code on AWS Lambda 這篇文章。 實作開個跑 Amazon Linux AMI 的 EC2 instanceAWS lambda 的執行環境基本上就是 Amazon L">
 <meta property="og:locale" content="zh-tw">
@@ -128,7 +128,7 @@
 
 
 
-  <link rel="canonical" href="https://pei-lun.github.io/blog/2015/12/21/Creating-a-Python-Deployment-Package-for-AWS-Lambda/"/>
+  <link rel="canonical" href="http://pei-lun.github.io/blog/2015/12/21/Creating-a-Python-Deployment-Package-for-AWS-Lambda/"/>
 
 
 
@@ -253,12 +253,12 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://pei-lun.github.io/blog/blog/2015/12/21/Creating-a-Python-Deployment-Package-for-AWS-Lambda/">
+    <link itemprop="mainEntityOfPage" href="http://pei-lun.github.io/blog/blog/2015/12/21/Creating-a-Python-Deployment-Package-for-AWS-Lambda/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Pei-Lun H.">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/658047658842451968/1_aqC4Uc.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -303,6 +303,17 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/2015/12/21/Creating-a-Python-Deployment-Package-for-AWS-Lambda/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2015/12/21/Creating-a-Python-Deployment-Package-for-AWS-Lambda/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -328,17 +339,17 @@
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>這篇主要是紀錄實作 AWS Lambda 開發者文件 <a href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-python-how-to-create-deployment-package.html" target="_blank" rel="external">Creating a Deployment Package (Python)</a> 的步驟，同時還參考了 <a href="http://www.perrygeo.com/running-python-with-compiled-code-on-aws-lambda.html" target="_blank" rel="external">Running Python with compiled code on AWS Lambda</a> 這篇文章。</p>
 <h1 id="實作"><a href="#實作" class="headerlink" title="實作"></a>實作</h1><h2 id="開個跑-Amazon-Linux-AMI-的-EC2-instance"><a href="#開個跑-Amazon-Linux-AMI-的-EC2-instance" class="headerlink" title="開個跑 Amazon Linux AMI 的 EC2 instance"></a>開個跑 Amazon Linux AMI 的 EC2 instance</h2><p>AWS lambda 的執行環境基本上就是 Amazon Linux AMI，因為使用同樣環境下編譯的套件比較容易成功，所以我們首先要開個跑 Amazon Linux AMI 的 EC2 instance。</p>
 <h2 id="安裝編譯-lxml-所需要的套件"><a href="#安裝編譯-lxml-所需要的套件" class="headerlink" title="安裝編譯 lxml 所需要的套件"></a>安裝編譯 lxml 所需要的套件</h2><p>ssh 進剛剛開好的 EC2 instance 並安裝套件：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo yum install gcc libxml2-devel libxslt-devel</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum install gcc libxml2-devel libxslt-devel</div></pre></td></tr></table></figure>
 <h2 id="在虛擬環境安裝-lxml"><a href="#在虛擬環境安裝-lxml" class="headerlink" title="在虛擬環境安裝 lxml"></a>在虛擬環境安裝 lxml</h2><p>Amazon Linux AMI 預設的 python 環境已經裝了很多不必要的套件，因此我們需要用 virtualenv 建立乾淨的虛擬環境：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ python -m virtualenv path/<span class="keyword">to</span>/<span class="keyword">my</span>/virtual-env</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ python -m virtualenv path/to/my/virtual-env</div></pre></td></tr></table></figure>
 <p>建立好之後啟動虛擬環境：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ source path/<span class="keyword">to</span>/<span class="keyword">my</span>/virtual-env/bin/<span class="built_in">activate</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ source path/to/my/virtual-env/bin/activate</div></pre></td></tr></table></figure>
 <p>安裝 lxml:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> python -m pip install lxml</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ python -m pip install lxml</div></pre></td></tr></table></figure>
 <h2 id="打包-lambda-程式"><a href="#打包-lambda-程式" class="headerlink" title="打包 lambda 程式"></a>打包 lambda 程式</h2><p>假設用到 lxml 的 lambda 程式放在 <code>path/to/my/project</code> 下，先切換到該目錄再打包成 zip 檔：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> path/to/my/project</span></div><div class="line"><span class="meta">$</span><span class="bash"> zip -9r bundle.zip *</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd path/to/my/project</div><div class="line">$ zip -9r bundle.zip *</div></pre></td></tr></table></figure>
 <p>然後再切換到該虛擬環境放置套件的目錄，並打包進剛剛的 zip 檔：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> <span class="variable">$VIRTUAL_ENV</span>/lib/python2.7/site-packages</span></div><div class="line"><span class="meta">$</span><span class="bash"> zip -9r path/to/my/project/bundle.zip *</span></div><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> <span class="variable">$VIRTUAL_ENV</span>/lib64/python2.7/site-packages</span></div><div class="line"><span class="meta">$</span><span class="bash"> zip -9r path/to/my/project/bundle.zip *</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ cd $VIRTUAL_ENV/lib/python2.7/site-packages</div><div class="line">$ zip -9r path/to/my/project/bundle.zip *</div><div class="line">$ cd $VIRTUAL_ENV/lib64/python2.7/site-packages</div><div class="line">$ zip -9r path/to/my/project/bundle.zip *</div></pre></td></tr></table></figure>
 <h2 id="發佈"><a href="#發佈" class="headerlink" title="發佈"></a>發佈</h2><p>最後只要上傳 <code>path/to/my/project/bundle.zip</code> 到 AWS Lambda 去就完成了。</p>
 
       
@@ -422,6 +433,13 @@
           
   <div class="comments" id="comments">
     
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
   </div>
 
 
@@ -456,7 +474,7 @@
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/blog/images/avatar.gif"
+               src="https://pbs.twimg.com/profile_images/658047658842451968/1_aqC4Uc.jpg"
                alt="Pei-Lun H." />
           <p class="site-author-name" itemprop="name">Pei-Lun H.</p>
            
@@ -650,6 +668,26 @@
 
   
 
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://nobody-archives.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://pei-lun.github.io/blog/2015/12/21/Creating-a-Python-Deployment-Package-for-AWS-Lambda/';
+          this.page.identifier = '2015/12/21/Creating-a-Python-Deployment-Package-for-AWS-Lambda/';
+          this.page.title = '建立可用於 AWS Lambda 的 Python 部署套件';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://nobody-archives.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
 
   
 

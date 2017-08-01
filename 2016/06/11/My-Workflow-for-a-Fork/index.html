@@ -92,7 +92,7 @@
 <meta name="description" content="習慣上我會保持 fork 的 master 和原始 repository 的 master 同步，並且不會直接 commit 自己的變更到該分支。 設定首先為 fork 設定原始 repository 的 remote： 1git remote add upstream &amp;lt;remote URL to original repository&amp;gt; 完成後輸入 git remote -v 應該">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Fork 的工作流程">
-<meta property="og:url" content="https://pei-lun.github.io/blog/2016/06/11/My-Workflow-for-a-Fork/index.html">
+<meta property="og:url" content="http://pei-lun.github.io/blog/2016/06/11/My-Workflow-for-a-Fork/index.html">
 <meta property="og:site_name" content="沒有人的文庫">
 <meta property="og:description" content="習慣上我會保持 fork 的 master 和原始 repository 的 master 同步，並且不會直接 commit 自己的變更到該分支。 設定首先為 fork 設定原始 repository 的 remote： 1git remote add upstream &amp;lt;remote URL to original repository&amp;gt; 完成後輸入 git remote -v 應該">
 <meta property="og:locale" content="zh-tw">
@@ -127,7 +127,7 @@
 
 
 
-  <link rel="canonical" href="https://pei-lun.github.io/blog/2016/06/11/My-Workflow-for-a-Fork/"/>
+  <link rel="canonical" href="http://pei-lun.github.io/blog/2016/06/11/My-Workflow-for-a-Fork/"/>
 
 
 
@@ -252,12 +252,12 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://pei-lun.github.io/blog/blog/2016/06/11/My-Workflow-for-a-Fork/">
+    <link itemprop="mainEntityOfPage" href="http://pei-lun.github.io/blog/blog/2016/06/11/My-Workflow-for-a-Fork/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Pei-Lun H.">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/658047658842451968/1_aqC4Uc.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -302,6 +302,17 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/2016/06/11/My-Workflow-for-a-Fork/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/06/11/My-Workflow-for-a-Fork/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -326,17 +337,17 @@
       
         <p>習慣上我會保持 fork 的 master 和原始 repository 的 master 同步，並且不會直接 commit 自己的變更到該分支。</p>
 <h2 id="設定"><a href="#設定" class="headerlink" title="設定"></a>設定</h2><p>首先為 fork 設定原始 repository 的 remote：</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote <span class="built_in">add</span> upstream &lt;remote <span class="built_in">URL</span> <span class="built_in">to</span> original repository&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add upstream &lt;remote URL to original repository&gt;</div></pre></td></tr></table></figure>
 <p>完成後輸入 <code>git remote -v</code> 應該會看到 origin 和 upstream。</p>
 <p>然後再從 master 建立新的分支：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -<span class="selector-tag">b</span> &lt;my changes&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -b &lt;my changes&gt;</div></pre></td></tr></table></figure>
 <p>此後所有變更都 commit 到該分支上。</p>
 <h2 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h2><p>執行：</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git checkout <span class="literal">master</span></div><div class="line">git fetch upstream</div><div class="line">git merge upstream/<span class="literal">master</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git checkout master</div><div class="line">git fetch upstream</div><div class="line">git merge upstream/master</div></pre></td></tr></table></figure>
 <p>或是：</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git checkout <span class="literal">master</span></div><div class="line">git pull upstream <span class="literal">master</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git checkout master</div><div class="line">git pull upstream master</div></pre></td></tr></table></figure>
 <p>以同步 fork 的 master 分支。然後再執行：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git checkout &lt;<span class="keyword">my</span> changes&gt;</div><div class="line">git merge master</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git checkout &lt;my changes&gt;</div><div class="line">git merge master</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -411,6 +422,13 @@
           
   <div class="comments" id="comments">
     
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
   </div>
 
 
@@ -445,7 +463,7 @@
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/blog/images/avatar.gif"
+               src="https://pbs.twimg.com/profile_images/658047658842451968/1_aqC4Uc.jpg"
                alt="Pei-Lun H." />
           <p class="site-author-name" itemprop="name">Pei-Lun H.</p>
            
@@ -639,6 +657,26 @@
 
   
 
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://nobody-archives.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://pei-lun.github.io/blog/2016/06/11/My-Workflow-for-a-Fork/';
+          this.page.identifier = '2016/06/11/My-Workflow-for-a-Fork/';
+          this.page.title = 'Fork 的工作流程';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://nobody-archives.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
 
   
 
