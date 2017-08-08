@@ -71,7 +71,7 @@
 <link href="/blog/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Python 3," />
 
 
 
@@ -89,17 +89,18 @@
 
 
 
-<meta name="description" content="習慣上我會保持 fork 的 master 和原始 repository 的 master 同步，並且不會直接 commit 自己的變更到該分支。 設定首先為 fork 設定原始 repository 的 remote： 1git remote add upstream &amp;lt;remote URL to original repository&amp;gt; 完成後輸入 git remote -v 應該">
+<meta name="description" content="123456789101112131415161718192021#!/usr/bin/env python3from os import removefrom os.path import splitextfrom time import sleepimport fcntldef main():    lock_filename = &apos;&amp;#123;&amp;#125;.lock&apos;.format(spli">
+<meta name="keywords" content="Python 3">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Fork 的工作流程">
-<meta property="og:url" content="https://pei-lun.github.io/blog/2016/06/11/My-Workflow-for-a-Fork/index.html">
+<meta property="og:title" content="Use fcntl.flock to Ensure Only One Instance of a Python Script Is Running">
+<meta property="og:url" content="https://pei-lun.github.io/blog/2017/02/09/Use-fcntl-flock-to-Ensure-Only-One-Instance-of-a-Python-Script-Is-Running/index.html">
 <meta property="og:site_name" content="沒有人的文庫">
-<meta property="og:description" content="習慣上我會保持 fork 的 master 和原始 repository 的 master 同步，並且不會直接 commit 自己的變更到該分支。 設定首先為 fork 設定原始 repository 的 remote： 1git remote add upstream &amp;lt;remote URL to original repository&amp;gt; 完成後輸入 git remote -v 應該">
+<meta property="og:description" content="123456789101112131415161718192021#!/usr/bin/env python3from os import removefrom os.path import splitextfrom time import sleepimport fcntldef main():    lock_filename = &apos;&amp;#123;&amp;#125;.lock&apos;.format(spli">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2017-08-01T02:32:23.000Z">
+<meta property="og:updated_time" content="2017-08-08T03:29:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fork 的工作流程">
-<meta name="twitter:description" content="習慣上我會保持 fork 的 master 和原始 repository 的 master 同步，並且不會直接 commit 自己的變更到該分支。 設定首先為 fork 設定原始 repository 的 remote： 1git remote add upstream &amp;lt;remote URL to original repository&amp;gt; 完成後輸入 git remote -v 應該">
+<meta name="twitter:title" content="Use fcntl.flock to Ensure Only One Instance of a Python Script Is Running">
+<meta name="twitter:description" content="123456789101112131415161718192021#!/usr/bin/env python3from os import removefrom os.path import splitextfrom time import sleepimport fcntldef main():    lock_filename = &apos;&amp;#123;&amp;#125;.lock&apos;.format(spli">
 
 
 
@@ -127,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="https://pei-lun.github.io/blog/2016/06/11/My-Workflow-for-a-Fork/"/>
+  <link rel="canonical" href="https://pei-lun.github.io/blog/2017/02/09/Use-fcntl-flock-to-Ensure-Only-One-Instance-of-a-Python-Script-Is-Running/"/>
 
 
 
 
 
-  <title> Fork 的工作流程 | 沒有人的文庫 </title>
+  <title> Use fcntl.flock to Ensure Only One Instance of a Python Script Is Running | 沒有人的文庫 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
@@ -252,7 +253,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://pei-lun.github.io/blog/blog/2016/06/11/My-Workflow-for-a-Fork/">
+    <link itemprop="mainEntityOfPage" href="https://pei-lun.github.io/blog/blog/2017/02/09/Use-fcntl-flock-to-Ensure-Only-One-Instance-of-a-Python-Script-Is-Running/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Pei-Lun H.">
@@ -273,7 +274,7 @@
             
             
               
-                Fork 的工作流程
+                Use fcntl.flock to Ensure Only One Instance of a Python Script Is Running
               
             
           </h1>
@@ -288,8 +289,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2016-06-11T16:51:19+08:00">
-                2016-06-11
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-02-09T04:51:18+08:00">
+                2017-02-09
               </time>
             
 
@@ -307,9 +308,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/blog/2016/06/11/My-Workflow-for-a-Fork/#comments" itemprop="discussionUrl">
+                <a href="/blog/2017/02/09/Use-fcntl-flock-to-Ensure-Only-One-Instance-of-a-Python-Script-Is-Running/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2016/06/11/My-Workflow-for-a-Fork/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/02/09/Use-fcntl-flock-to-Ensure-Only-One-Instance-of-a-Python-Script-Is-Running/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -335,19 +336,12 @@
       
 
       
-        <p>習慣上我會保持 fork 的 master 和原始 repository 的 master 同步，並且不會直接 commit 自己的變更到該分支。</p>
-<h2 id="設定"><a href="#設定" class="headerlink" title="設定"></a>設定</h2><p>首先為 fork 設定原始 repository 的 remote：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add upstream &lt;remote URL to original repository&gt;</div></pre></td></tr></table></figure>
-<p>完成後輸入 <code>git remote -v</code> 應該會看到 origin 和 upstream。</p>
-<p>然後再從 master 建立新的分支：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -b &lt;my changes&gt;</div></pre></td></tr></table></figure>
-<p>此後所有變更都 commit 到該分支上。</p>
-<h2 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h2><p>執行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git checkout master</div><div class="line">git fetch upstream</div><div class="line">git merge upstream/master</div></pre></td></tr></table></figure>
-<p>或是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git checkout master</div><div class="line">git pull upstream master</div></pre></td></tr></table></figure>
-<p>以同步 fork 的 master 分支。然後再執行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git checkout &lt;my changes&gt;</div><div class="line">git merge master</div></pre></td></tr></table></figure>
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python3</span></div><div class="line"><span class="keyword">from</span> os <span class="keyword">import</span> remove</div><div class="line"><span class="keyword">from</span> os.path <span class="keyword">import</span> splitext</div><div class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</div><div class="line"><span class="keyword">import</span> fcntl</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></div><div class="line">    lock_filename = <span class="string">'&#123;&#125;.lock'</span>.format(splitext(__file__)[<span class="number">0</span>])</div><div class="line">    <span class="keyword">with</span> open(lock_filename, <span class="string">'w'</span>) <span class="keyword">as</span> lock_file:</div><div class="line">        <span class="keyword">try</span>:</div><div class="line">            fcntl.flock(lock_file, fcntl.LOCK_EX | fcntl.LOCK_NB)</div><div class="line">        <span class="keyword">except</span> IOError:</div><div class="line">            <span class="keyword">return</span></div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            sleep(<span class="number">10</span>)</div><div class="line">            print(<span class="string">'Done!'</span>)</div><div class="line">    remove(lock_filename)</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    main()</div></pre></td></tr></table></figure>
+<p>Note that this code doesn’t works on Windows.</p>
+<p>References:</p>
+<ul>
+<li><a href="https://docs.python.org/3/library/fcntl.html#fcntl.flock" target="_blank" rel="external">https://docs.python.org/3/library/fcntl.html#fcntl.flock</a></li>
+</ul>
 
       
     </div>
@@ -375,6 +369,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/blog/tags/Python-3/" rel="tag"># Python 3</a>
+          
+        </div>
+      
 
       
         
@@ -384,8 +384,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2016/05/01/Convert-Timezone-in-Python-without-Installing-Packages/" rel="next" title="Python 不安裝額外套件轉換時區">
-                <i class="fa fa-chevron-left"></i> Python 不安裝額外套件轉換時區
+              <a href="/blog/2016/06/11/My-Workflow-for-a-Fork/" rel="next" title="Fork 的工作流程">
+                <i class="fa fa-chevron-left"></i> Fork 的工作流程
               </a>
             
           </div>
@@ -394,8 +394,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2017/02/09/Use-fcntl-flock-to-Ensure-Only-One-Instance-of-a-Python-Script-Is-Running/" rel="prev" title="Use fcntl.flock to Ensure Only One Instance of a Python Script Is Running">
-                Use fcntl.flock to Ensure Only One Instance of a Python Script Is Running <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2017/02/16/Use-flock-to-Ensure-Only-One-Instance-of-a-Shell-Script-Is-Running/" rel="prev" title="Use flock to Ensure Only One Instance of a Shell Script Is Running">
+                Use flock to Ensure Only One Instance of a Shell Script Is Running <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -450,17 +450,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目錄
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            本站概覽
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://pbs.twimg.com/profile_images/658047658842451968/1_aqC4Uc.jpg"
@@ -520,22 +511,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#設定"><span class="nav-number">1.</span> <span class="nav-text">設定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同步"><span class="nav-number">2.</span> <span class="nav-text">同步</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -667,9 +642,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://pei-lun.github.io/blog/2016/06/11/My-Workflow-for-a-Fork/';
-          this.page.identifier = '2016/06/11/My-Workflow-for-a-Fork/';
-          this.page.title = 'Fork 的工作流程';
+          this.page.url = 'https://pei-lun.github.io/blog/2017/02/09/Use-fcntl-flock-to-Ensure-Only-One-Instance-of-a-Python-Script-Is-Running/';
+          this.page.identifier = '2017/02/09/Use-fcntl-flock-to-Ensure-Only-One-Instance-of-a-Python-Script-Is-Running/';
+          this.page.title = 'Use fcntl.flock to Ensure Only One Instance of a Python Script Is Running';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://nobody-archives.disqus.com/embed.js';

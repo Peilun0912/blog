@@ -4,9 +4,9 @@
   
   <link href="/blog/atom.xml" rel="self"/>
   
-  <link href="http://pei-lun.github.io/blog/"/>
-  <updated>2017-08-01T02:32:23.000Z</updated>
-  <id>http://pei-lun.github.io/blog/</id>
+  <link href="https://pei-lun.github.io/blog/"/>
+  <updated>2017-08-08T03:38:49.000Z</updated>
+  <id>https://pei-lun.github.io/blog/</id>
   
   <author>
     <name>Pei-Lun H.</name>
@@ -16,35 +16,90 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>用 fcntl.flock 來確保程式同一時間內只有一個執行個體</title>
-    <link href="http://pei-lun.github.io/blog/2016/06/16/Use-fcntl-flock-to-Allow-Only-One-Execution-of-a-Script-Simultaneously/"/>
-    <id>http://pei-lun.github.io/blog/2016/06/16/Use-fcntl-flock-to-Allow-Only-One-Execution-of-a-Script-Simultaneously/</id>
-    <published>2016-06-16T09:26:13.000Z</published>
-    <updated>2017-08-01T02:32:23.000Z</updated>
+    <title>Use GNU Utilities on macOS</title>
+    <link href="https://pei-lun.github.io/blog/2017/06/21/Use-GNU-Utilities-on-macOS/"/>
+    <id>https://pei-lun.github.io/blog/2017/06/21/Use-GNU-Utilities-on-macOS/</id>
+    <published>2017-06-21T04:05:05.000Z</published>
+    <updated>2017-08-08T03:38:49.000Z</updated>
     
-    <content type="html"><![CDATA[<p>範例程式：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> os.path <span class="keyword">import</span> splitext</div><div class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</div><div class="line"><span class="keyword">import</span> fcntl</div><div class="line"><span class="keyword">import</span> sys</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></div><div class="line">    print(<span class="string">'Start to sleep.'</span>)</div><div class="line">    sleep(<span class="number">10</span>)</div><div class="line">    print(<span class="string">'Awake.'</span>)</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    lock_file = open(<span class="string">'&#123;&#125;.lock'</span>.format(splitext(__file__)[<span class="number">0</span>]), <span class="string">'w+'</span>)</div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        fcntl.flock(lock_file, fcntl.LOCK_EX | fcntl.LOCK_NB)</div><div class="line">    <span class="keyword">except</span> IOError:</div><div class="line">        sys.exit(<span class="string">'This script is running!'</span>)</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        main()</div></pre></td></tr></table></figure>
-<p>適用於 Unix-like 系統。</p>
+    <content type="html"><![CDATA[<p>Some commands are identical on macOS and GNU/Linux, but they behave differently, e.g., <code>readlink</code> and <code>sed</code>. We can install GNU version commands via <a href="https://brew.sh" target="_blank" rel="external">Homebrew</a>, all commands are installed with the prefix <code>g</code> by default, e.g., <code>greadlink</code> and <code>gsed</code>.</p>
+<p><code>brew install coreutils</code> provides:</p>
+<ul>
+<li><code>greadlink</code></li>
+<li><code>grealpath</code></li>
+<li>etc.</li>
+</ul>
+<p><code>brew install gnu-sed</code> provides: <code>gsed</code></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;範例程式：&lt;/p&gt;
-&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div clas
+      &lt;p&gt;Some commands are identical on macOS and GNU/Linux, but they behave differently, e.g., &lt;code&gt;readlink&lt;/code&gt; and &lt;code&gt;sed&lt;/code&gt;. We can
     
     </summary>
     
     
-      <category term="Python 2" scheme="http://pei-lun.github.io/blog/tags/Python-2/"/>
+      <category term="macOS" scheme="https://pei-lun.github.io/blog/tags/macOS/"/>
     
-      <category term="Python 3" scheme="http://pei-lun.github.io/blog/tags/Python-3/"/>
+  </entry>
+  
+  <entry>
+    <title>Use flock to Ensure Only One Instance of a Shell Script Is Running</title>
+    <link href="https://pei-lun.github.io/blog/2017/02/16/Use-flock-to-Ensure-Only-One-Instance-of-a-Shell-Script-Is-Running/"/>
+    <id>https://pei-lun.github.io/blog/2017/02/16/Use-flock-to-Ensure-Only-One-Instance-of-a-Shell-Script-Is-Running/</id>
+    <published>2017-02-16T10:00:05.000Z</published>
+    <updated>2017-08-08T03:34:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/usr/bin/env bash</span></div><div class="line"></div><div class="line">script=$(realpath <span class="string">"<span class="variable">$0</span>"</span>)</div><div class="line">lock_file=<span class="string">"<span class="variable">$&#123;script%.*&#125;</span>.lock"</span></div><div class="line">(</div><div class="line">  flock -n 9 || <span class="built_in">exit</span> 1</div><div class="line">  sleep 10 &amp;&amp; <span class="built_in">echo</span> <span class="string">'Done!'</span></div><div class="line">) 9&gt; <span class="string">"<span class="variable">$lock_file</span>"</span> &amp;&amp; rm <span class="string">"<span class="variable">$lock_file</span>"</span></div></pre></td></tr></table></figure>
+<p>References:</p>
+<ul>
+<li>Unix manual <em>flock(1)</em></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div
+    
+    </summary>
+    
+    
+      <category term="Bash" scheme="https://pei-lun.github.io/blog/tags/Bash/"/>
+    
+      <category term="Shell Script" scheme="https://pei-lun.github.io/blog/tags/Shell-Script/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Use fcntl.flock to Ensure Only One Instance of a Python Script Is Running</title>
+    <link href="https://pei-lun.github.io/blog/2017/02/09/Use-fcntl-flock-to-Ensure-Only-One-Instance-of-a-Python-Script-Is-Running/"/>
+    <id>https://pei-lun.github.io/blog/2017/02/09/Use-fcntl-flock-to-Ensure-Only-One-Instance-of-a-Python-Script-Is-Running/</id>
+    <published>2017-02-08T20:51:18.000Z</published>
+    <updated>2017-08-08T03:29:17.000Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python3</span></div><div class="line"><span class="keyword">from</span> os <span class="keyword">import</span> remove</div><div class="line"><span class="keyword">from</span> os.path <span class="keyword">import</span> splitext</div><div class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</div><div class="line"><span class="keyword">import</span> fcntl</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></div><div class="line">    lock_filename = <span class="string">'&#123;&#125;.lock'</span>.format(splitext(__file__)[<span class="number">0</span>])</div><div class="line">    <span class="keyword">with</span> open(lock_filename, <span class="string">'w'</span>) <span class="keyword">as</span> lock_file:</div><div class="line">        <span class="keyword">try</span>:</div><div class="line">            fcntl.flock(lock_file, fcntl.LOCK_EX | fcntl.LOCK_NB)</div><div class="line">        <span class="keyword">except</span> IOError:</div><div class="line">            <span class="keyword">return</span></div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            sleep(<span class="number">10</span>)</div><div class="line">            print(<span class="string">'Done!'</span>)</div><div class="line">    remove(lock_filename)</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    main()</div></pre></td></tr></table></figure>
+<p>Note that this code doesn’t works on Windows.</p>
+<p>References:</p>
+<ul>
+<li><a href="https://docs.python.org/3/library/fcntl.html#fcntl.flock" target="_blank" rel="external">https://docs.python.org/3/library/fcntl.html#fcntl.flock</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/d
+    
+    </summary>
+    
+    
+      <category term="Python 3" scheme="https://pei-lun.github.io/blog/tags/Python-3/"/>
     
   </entry>
   
   <entry>
     <title>Fork 的工作流程</title>
-    <link href="http://pei-lun.github.io/blog/2016/06/11/My-Workflow-for-a-Fork/"/>
-    <id>http://pei-lun.github.io/blog/2016/06/11/My-Workflow-for-a-Fork/</id>
+    <link href="https://pei-lun.github.io/blog/2016/06/11/My-Workflow-for-a-Fork/"/>
+    <id>https://pei-lun.github.io/blog/2016/06/11/My-Workflow-for-a-Fork/</id>
     <published>2016-06-11T08:51:19.000Z</published>
     <updated>2017-08-01T02:32:23.000Z</updated>
     
@@ -75,8 +130,8 @@
   
   <entry>
     <title>Python 不安裝額外套件轉換時區</title>
-    <link href="http://pei-lun.github.io/blog/2016/05/01/Convert-Timezone-in-Python-without-Installing-Packages/"/>
-    <id>http://pei-lun.github.io/blog/2016/05/01/Convert-Timezone-in-Python-without-Installing-Packages/</id>
+    <link href="https://pei-lun.github.io/blog/2016/05/01/Convert-Timezone-in-Python-without-Installing-Packages/"/>
+    <id>https://pei-lun.github.io/blog/2016/05/01/Convert-Timezone-in-Python-without-Installing-Packages/</id>
     <published>2016-05-01T04:02:52.000Z</published>
     <updated>2017-08-01T02:32:23.000Z</updated>
     
@@ -92,16 +147,16 @@
     </summary>
     
     
-      <category term="Python 2" scheme="http://pei-lun.github.io/blog/tags/Python-2/"/>
+      <category term="Python 2" scheme="https://pei-lun.github.io/blog/tags/Python-2/"/>
     
-      <category term="Python 3" scheme="http://pei-lun.github.io/blog/tags/Python-3/"/>
+      <category term="Python 3" scheme="https://pei-lun.github.io/blog/tags/Python-3/"/>
     
   </entry>
   
   <entry>
     <title>建立可用於 AWS Lambda 的 Python 部署套件</title>
-    <link href="http://pei-lun.github.io/blog/2015/12/21/Creating-a-Python-Deployment-Package-for-AWS-Lambda/"/>
-    <id>http://pei-lun.github.io/blog/2015/12/21/Creating-a-Python-Deployment-Package-for-AWS-Lambda/</id>
+    <link href="https://pei-lun.github.io/blog/2015/12/21/Creating-a-Python-Deployment-Package-for-AWS-Lambda/"/>
+    <id>https://pei-lun.github.io/blog/2015/12/21/Creating-a-Python-Deployment-Package-for-AWS-Lambda/</id>
     <published>2015-12-21T06:41:46.000Z</published>
     <updated>2017-08-01T02:32:23.000Z</updated>
     
@@ -129,16 +184,16 @@
     </summary>
     
     
-      <category term="Python 2" scheme="http://pei-lun.github.io/blog/tags/Python-2/"/>
+      <category term="Python 2" scheme="https://pei-lun.github.io/blog/tags/Python-2/"/>
     
-      <category term="AWS" scheme="http://pei-lun.github.io/blog/tags/AWS/"/>
+      <category term="AWS" scheme="https://pei-lun.github.io/blog/tags/AWS/"/>
     
   </entry>
   
   <entry>
     <title>令 Atom 顯示合字</title>
-    <link href="http://pei-lun.github.io/blog/2015/12/13/Make-Atom-Render-Ligatures/"/>
-    <id>http://pei-lun.github.io/blog/2015/12/13/Make-Atom-Render-Ligatures/</id>
+    <link href="https://pei-lun.github.io/blog/2015/12/13/Make-Atom-Render-Ligatures/"/>
+    <id>https://pei-lun.github.io/blog/2015/12/13/Make-Atom-Render-Ligatures/</id>
     <published>2015-12-12T16:01:10.000Z</published>
     <updated>2017-08-01T02:32:23.000Z</updated>
     
@@ -155,7 +210,7 @@
     </summary>
     
     
-      <category term="Atom" scheme="http://pei-lun.github.io/blog/tags/Atom/"/>
+      <category term="Atom" scheme="https://pei-lun.github.io/blog/tags/Atom/"/>
     
   </entry>
   
