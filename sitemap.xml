@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://pei-lun.github.io/blog/2017/02/09/Use-fcntl-flock-to-Ensure-Only-One-Instance-of-a-Python-Script-Is-Running/</loc>
+    
+    <lastmod>2017-08-14T06:14:10.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://pei-lun.github.io/blog/2017/06/21/Use-GNU-Utilities-on-macOS/</loc>
     
     <lastmod>2017-08-08T03:38:49.000Z</lastmod>
@@ -16,14 +23,14 @@
   </url>
   
   <url>
-    <loc>https://pei-lun.github.io/blog/2017/02/09/Use-fcntl-flock-to-Ensure-Only-One-Instance-of-a-Python-Script-Is-Running/</loc>
+    <loc>https://pei-lun.github.io/blog/2016/05/01/Convert-Timezone-in-Python-without-Installing-Packages/</loc>
     
-    <lastmod>2017-08-08T03:29:17.000Z</lastmod>
+    <lastmod>2017-08-01T02:32:23.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://pei-lun.github.io/blog/2016/05/01/Convert-Timezone-in-Python-without-Installing-Packages/</loc>
+    <loc>https://pei-lun.github.io/blog/2016/06/11/My-Workflow-for-a-Fork/</loc>
     
     <lastmod>2017-08-01T02:32:23.000Z</lastmod>
     
@@ -38,13 +45,6 @@
   
   <url>
     <loc>https://pei-lun.github.io/blog/2015/12/13/Make-Atom-Render-Ligatures/</loc>
-    
-    <lastmod>2017-08-01T02:32:23.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pei-lun.github.io/blog/2016/06/11/My-Workflow-for-a-Fork/</loc>
     
     <lastmod>2017-08-01T02:32:23.000Z</lastmod>
     
